@@ -10,7 +10,7 @@ standard out as items in the seq are processed.
 ```clojure
 user> (require '[progressbar.core :refer [progressbar]])
 user> (doall (map identity (progressbar (range 10) :print-every 2)))
-[====)
+[====) # this is animated from [) to [====) using \r
 (0 1 2 3 4 5 6 7 8 9)
 ```
 
