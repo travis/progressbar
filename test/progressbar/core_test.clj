@@ -3,5 +3,6 @@
             [progressbar.core :refer :all]))
 
 (deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+  (testing ""
+    (is (= "\r[>\r[=>\r[==>\r[===>\r[====>"
+           (with-out-str (doall (map identity (progressbar (range 10) :print-every 2))))))))
