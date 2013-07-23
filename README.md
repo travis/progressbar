@@ -1,4 +1,4 @@
-# Progressbar
+# progressbar
 
 Easy progress bars in Clojure.
 
