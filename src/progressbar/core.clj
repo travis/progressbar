@@ -5,7 +5,7 @@
 (defn unbounded-progress-seq [print-every]
   (map (fn [index]
          (when (= 0 (mod index print-every))
-           (str "\r["(str/join (take (int (/ index print-every)) (repeat "=")))">")))
+           (str "\r["(str/join (take (int (/ index print-every)) (repeat "=")))")")))
        (iterate inc 0)))
 
 (defn progressbar [seq & {:keys [print-every progress-seq]
