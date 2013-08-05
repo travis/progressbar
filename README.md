@@ -26,9 +26,9 @@ every 10 items in the seq that are processed.
 ### Options
 
 <dl>
-<dt>`:print-every`</dt>
+<dt>:print-every</dt>
 <dd>The number of items each `=` represents</dd>
-<dt>`:progress-seq`</dt>
+<dt>:progress-seq</dt>
 <dd>A custom progress seq. An element from this seq will be printed every time an element from the wrapped seq is processed, unless the element from the progress seq is `nil`.</dd>
 </dl>
 
