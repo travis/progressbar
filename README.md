@@ -2,6 +2,14 @@
 
 Easy progress bars in Clojure.
 
+## Installation
+
+Install from [Clojars](https://clojars.org/progressbar):
+
+```clj
+  :dependencies [[progressbar "0.0.1"]]
+```
+
 ## Usage
 
 Progressbar transparently wraps any `seq`able to print feedback to
