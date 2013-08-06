@@ -1,4 +1,4 @@
-(defproject progressbar "0.0.1"
+(defproject progressbar "0.0.2-SNAPSHOT"
   :description "Easy progress bars in Clojure."
   :url "https://github.com/travis/progressbar"
   :license {:name "Eclipse Public License"
