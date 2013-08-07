@@ -38,6 +38,10 @@ every 10 items in the seq that are processed.
 <dd>The number of items each `=` represents</dd>
 <dt>:progress-seq</dt>
 <dd>A custom progress seq. An element from this seq will be printed every time an element from the wrapped seq is processed, unless the element from the progress seq is `nil`.</dd>
+<dt>:count</dt>
+<dd>If given, the progress bar will be bounded, indicating how close to completion we are</dd>
+<dt>:width</dt>
+<dd>If a count is given, this controls how wide the progress bar will be.</dd>
 </dl>
 
 ### Custom progress seqs

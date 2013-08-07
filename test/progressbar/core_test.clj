@@ -5,7 +5,12 @@
 (deftest test-default
   (testing "default behavior"
     (is (= "\r[)\r[=)\r[==)\r[===)\r[====)"
-           (with-out-str (doall (map identity (progressbar (range 10) :print-every 2))))))))
+           (with-out-str (doall (map identity (progressbar (range 10) :print-every 2)))))))
+  (testing "count"
+    (is (= "\r[    ]\r[=   ]\r[==  ]\r[=== ]\r[====]"
+           (with-out-str (doall (map identity (progressbar (range 10) :count 10 :width 4))))))
+    (is (= "\r[   ]\r[=  ]\r[== ]\r[===]
+           (with-out-str (doall (map identity (progressbar (range 10) :count 10 :width 3))))))))
 
 (deftest test-custom-seq
   (testing "custom seqs"
