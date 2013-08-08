@@ -12,8 +12,8 @@ the seq are processed.
           :or {print-every 10
                width 64}}]
   (let [progress-seq (or progress-seq (if count
-                                        (progress-seq/bounded count :width width)
-                                        (progress-seq/unbounded print-every)))]
+                                        (progress-seq/bounded count {:width width})
+                                        (progress-seq/create seq :print-every print-every :width width)))]
     (map (fn [item progress]
            (when progress
              (print progress)

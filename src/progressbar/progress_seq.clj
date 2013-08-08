@@ -1,14 +1,15 @@
 (ns progressbar.progress-seq
   (:require [clojure.string :as str]))
 
-(defn unbounded [print-every]
+(defn unbounded [{:keys [print-every]
+                  :or {print-every 10}}]
   (map (fn [index]
          (when (= 0 (mod index print-every))
            (str "\r["(str/join (take (int (/ index print-every)) (repeat "=")))")")))
        (iterate inc 0)))
 
-(defn bounded [cnt & {:keys [width]
-                                   :or {width 64}}]
+(defn bounded [cnt {:keys [width]
+                    :or {width 64}}]
   {:pre [(number? width) (pos? width)] }
   "Produces a seq like:
 
@@ -35,4 +36,15 @@
                                    ["]"]))))))
         (iterate inc 0))))
 
+(defprotocol ProgressSeq
+  (progress-seq [object args]))
 
+(extend-protocol ProgressSeq
+  java.lang.Iterable
+  (progress-seq [object args] (unbounded args))
+  clojure.lang.Counted
+  (progress-seq [object args]
+    (bounded (count object) args)))
+
+(defn create [object & {:as args}]
+  (progress-seq object args))
