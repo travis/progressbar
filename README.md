@@ -58,7 +58,7 @@ default progressbar will be bounded, like:
 `progressbar` uses a protocol to determine what kind of progress seq
 to use. We have extended `progressbar.progress-seq.ProgressSeq` to
 return an "unbounded" (ie, like `[===)`) progress seq for
-`java.lang.Iterable` and a "bounded" progress seq (ie, like `[===   ]`)
+`java.lang.Object` and a "bounded" progress seq (ie, like `[===   ]`)
 for any class that implements `clojure.lang.Counted`.
 
 `progressbar.progress-seq.ProgressSeq` can be extended to new
