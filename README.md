@@ -14,7 +14,7 @@ Add progressbar to your `project.clj`:
 
 ## Usage
 
-Progressbar transparently wraps any `seq`able to print feedback to
+`progressbar` transparently wraps any `map`able object to print feedback to
 standard out as items in the seq are processed.
 
 ```clojure
