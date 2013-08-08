@@ -33,6 +33,13 @@ The default progressbar looks like this:
 and will grow infinitely large. By default, it will print an `=` for
 every 10 items in the seq that are processed.
 
+Note that if the input seq implements `clojure.lang.Counted`, the
+default progressbar will be bounded, like:
+
+```
+[===        ]
+```
+
 ### Options
 
 <dl>
@@ -45,6 +52,22 @@ every 10 items in the seq that are processed.
 <dt>:width</dt>
 <dd>If a count is given, this controls how wide the progress bar will be.</dd>
 </dl>
+
+### Extension
+
+`progressbar` uses a protocol to determine what kind of progress seq
+to use. We have extended `progressbar.progress-seq.ProgressSeq` to
+return an "unbounded" (ie, like `[===)`) progress seq for
+`java.lang.Iterable` and a "bounded" progress seq (ie, like `[===   ]`)
+for any class that implements `clojure.lang.Counted`.
+
+`progressbar.progress-seq.ProgressSeq` can be extended to new
+arbitrary types in order to make progress seq selection automatic. For
+example, an HTTP response could return its response bytes as a
+`seq`-able type representing a stream of bytes, and
+`progressbar.progress-seq.ProgressSeq` could be extended to that type
+to return a bounded seq whose count is set from the `Content-Length`
+header of the HTTP response.
 
 ### Custom progress seqs
 
@@ -82,10 +105,7 @@ user> (doall (map identity (progressbar (range 10 20)
 
 ## TODO
 
-- build in bounded progressbar
-- add a `:count` option that will trigger the bounded progressbar
-- use a bounded progressbar by default if the input seq is actually a constant time
-  `count`able Collection
+- extend ProgressSeq to native java types
 
 ## License
 
