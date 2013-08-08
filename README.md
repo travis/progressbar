@@ -9,7 +9,7 @@ progressbar artifacts are published on [Clojars](https://clojars.org/progressbar
 Add progressbar to your `project.clj`:
 
 ```clj
-   [progressbar "0.0.1"]
+   [progressbar "0.0.2"]
 ```
 
 ## Usage
