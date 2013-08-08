@@ -40,11 +40,13 @@
   (progress-seq [object args]))
 
 (extend-protocol ProgressSeq
-  java.lang.Iterable
-  (progress-seq [object args] (unbounded args))
   clojure.lang.Counted
   (progress-seq [object args]
-    (bounded (count object) args)))
+    (bounded (count object) args))
+  java.lang.Object
+  (progress-seq [object args]
+    (unbounded args))
+)
 
 (defn create [object & {:as args}]
   (progress-seq object args))
