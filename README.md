@@ -4,10 +4,12 @@ Easy progress bars in Clojure.
 
 ## Installation
 
-Install from [Clojars](https://clojars.org/progressbar):
+progressbar artifacts are published on [Clojars](https://clojars.org/progressbar):
+
+Add progressbar to your `project.clj`:
 
 ```clj
-  :dependencies [[progressbar "0.0.1"]]
+   [progressbar "0.0.1"]
 ```
 
 ## Usage
