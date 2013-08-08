@@ -34,7 +34,7 @@
                                    (take number-of-equals (repeat "="))
                                    (take (- width number-of-equals) (repeat " "))
                                    ["]"]))))))
-        (range cnt))))
+        (iterate inc 0))))
 
 (defn progressbar
   "Transparently wrap any `seq`able to print feedback to standard out as items in
