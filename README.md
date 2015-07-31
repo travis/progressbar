@@ -1,3 +1,5 @@
+circletest
+
 # progressbar
 
 Easy progress bars in Clojure.
